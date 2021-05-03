@@ -1,4 +1,3 @@
-import { createApi } from 'unsplash-js';
 
 export default class UnSplashApiService {
 
@@ -6,9 +5,6 @@ export default class UnSplashApiService {
     _authUrl = "https://unsplash.com/oauth/authorize";
     _clientId = "U4yoNJ-VsoYXfEdYVpxy4IlchcZBZRNfXjK6z7uskKs";
     _clientS = "rtyb5f-s1-G3gE2xGNYe7wC-yUtB7g25nt3JMVJZdQg";
-    _unsplash = createApi({
-        accessKey: this._clientId,
-    });
 
     auth = async (code) => {
 
@@ -45,17 +41,13 @@ export default class UnSplashApiService {
         return `${this._authUrl}?client_id=${this._clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
     };
 
-    getPhoto = async (id) => {
+    getAllPhoto = async (page, accessToken) => {
 
-        return await this._unsplash
-            .photos.list()
-            .then((resp) => resp.response);
-    };
-
-    getAllPhoto = async (page) => {
-
-        const body = await this._unsplash.photos.list();
-        return body.response.results.map(this._transformPhoto)
+        return await fetch(`${this._apiBase}/photos?perPage=15&client_id=${this._clientId}`)
+            .then(response => response.json())
+            .then((photos) => {
+                return photos.map(this._transformPhoto)
+            });
     };
 
     getMe = async (accessToken) => {
@@ -77,9 +69,13 @@ export default class UnSplashApiService {
     }
 
     searchPhoto = async (q) => {
-        const body = await this._unsplash.search.getPhotos({ query: q });
-        // console.log(body)
-        return body.response.results.map(this._transformPhoto);
+
+        return await fetch(`${this._apiBase}/search/photos?perPage=15&client_id=${this._clientId}&query=${q}`)
+            .then(response => response.json())
+            .then((photos) => {
+                console.log(photos)
+                return photos.results.map(this._transformPhoto)
+            });
     };
 
     addPhotoCollection = async (collectionId, photoId) => {

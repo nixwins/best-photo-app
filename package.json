@@ -36,8 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@auth0/auth0-react": "^1.4.0",
-    "unsplash-js": "^7.0.10"
-  }
+  "devDependencies": {}
 }
