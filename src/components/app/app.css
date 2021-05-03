@@ -1,0 +1,22 @@
+body{
+    background-color:#444;
+}
+.app{
+    display: flex;
+    flex-direction: column;
+    width:80%;
+    max-width:960px;
+    margin:0 auto;
+    position: relative;
+} 
+
+.collection-list{
+    width:400px;
+    min-height: 400px;
+    margin: auto; 
+    position: absolute;
+    top:35px;
+    z-index: 9999;
+    /* left:50%; */
+    background-color: #fff;
+}

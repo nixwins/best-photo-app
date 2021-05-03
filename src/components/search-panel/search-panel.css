@@ -1,0 +1,14 @@
+.search-panel{
+    display: flex;
+    justify-content: center;
+    margin-bottom:40px;
+  
+
+}
+
+.search-panel input{
+    height: 60px;
+    max-width:600px;
+    width:100%;
+    font-size:28px;
+}

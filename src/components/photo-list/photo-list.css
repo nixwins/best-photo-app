@@ -1,0 +1,9 @@
+.photo-list {
+    width:100%;
+    /* display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; */
+    column-count:         3;
+    column-gap:           0;
+}
+
