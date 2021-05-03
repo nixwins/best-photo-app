@@ -17,6 +17,7 @@ export default class UnSplashApiService {
         };
 
         const formBody = [];
+
         for (var property in data) {
             var encodedKey = encodeURIComponent(property);
             var encodedValue = encodeURIComponent(data[property]);
