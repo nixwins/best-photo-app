@@ -36,7 +36,7 @@ export default class UnSplashApiService {
     };
 
     getAuthUrl = () => {
-        const redirectUri = 'http%3A%2F%2Flocalhost%3A3000';
+        const redirectUri = 'https://best-photo-app.herokuapp.com';
         const scope = 'public+read_collections+write_collections';
 
         return `${this._authUrl}?client_id=${this._clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
