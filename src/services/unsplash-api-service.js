@@ -11,7 +11,7 @@ export default class UnSplashApiService {
         const data = {
             client_id: this._clientId,
             client_secret: this._clientS,
-            redirect_uri: "http://localhost:3000",
+            redirect_uri: "https://best-photo-app.herokuapp.com",
             code: code,
             grant_type: "authorization_code"
         };
